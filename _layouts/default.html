@@ -3,28 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <title>{% if page.title and page.title != 'Blog' %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | escape }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  <div class="page">
-    <header class="site-header">
-      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav>
-        <a href="{{ '/' | relative_url }}">Blog</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <a class="rss-link" href="{{ '/feed.xml' | relative_url }}" aria-label="RSS feed">RSS</a>
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
+      <nav class="site-nav">
         <a href="{{ '/about/' | relative_url }}">About</a>
-        <a href="https://github.com/shaokunW">GitHub</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
+  <main class="page-content">
+    <div class="wrap">
       {{ content }}
-    </main>
+    </div>
+  </main>
 
-    <footer>
-      <span>© {{ 'now' | date: '%Y' }} Shaokun</span>
-    </footer>
-  </div>
+  <footer class="site-footer">
+    <div class="wrap">© {{ 'now' | date: '%Y' }} Shaokun</div>
+  </footer>
 </body>
 </html>
