@@ -1,0 +1,11 @@
+title: Shaokun's Blog
+description: Notes on software, systems, and things I learn.
+url: "https://shaokunw.github.io"
+baseurl: ""
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
